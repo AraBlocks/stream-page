@@ -109,7 +109,7 @@ function snippet() {
   console.log(process.env.REACT_APP_KEY);
   console.log(process.env.REACT_APP_SECOND_KEY);
   console.log(process.env.REACT_APP_KEY3);
-  console.log(process.env.REACT_APP_ALCHEMY.length);
+  console.log(process.env.REACT_APP_ALCHEMY?.length);
   console.log("^ hopefully you got three environment variables, and a length");
 
   return "return value";
@@ -388,7 +388,7 @@ function App() {
   return (
     <div className="App">
       <p>Hello, stream-page!</p>
-      <p>Date 2022dec15, Version 32</p>
+      <p>Date 2022dec18, Version 34</p>
       <Wallet />
     </div>
   );
