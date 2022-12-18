@@ -388,7 +388,7 @@ function App() {
   return (
     <div className="App">
       <p>Hello, stream-page!</p>
-      <p>Date 2022dec18, Version 34</p>
+      <p>Date 2022dec18, Version 35</p>
       <Wallet />
     </div>
   );
