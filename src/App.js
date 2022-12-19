@@ -1,64 +1,4 @@
 
-/*
-errors on the page itself:
-
-Compiled with problems:X
-
-ERROR in ./node_modules/cipher-base/index.js 2:16-43
-
-Module not found: Error: Can't resolve 'stream' in '...\stream-page\node_modules\cipher-base'
-
-BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
-This is no longer the case. Verify if you need this module and configure a polyfill for it.
-
-If you want to include a polyfill, you need to:
-  - add a fallback 'resolve.fallback: { "stream": require.resolve("stream-browserify") }'
-  - install 'stream-browserify'
-If you don't want to include a polyfill, you can use an empty module like this:
-  resolve.fallback: { "stream": false }
-
-
-ERROR in ./node_modules/ethereumjs-util/dist.browser/account.js 34:31-48
-
-Module not found: Error: Can't resolve 'assert' in '...\stream-page\node_modules\ethereumjs-util\dist.browser'
-
-BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
-This is no longer the case. Verify if you need this module and configure a polyfill for it.
-
-If you want to include a polyfill, you need to:
-  - add a fallback 'resolve.fallback: { "assert": require.resolve("assert/") }'
-  - install 'assert'
-If you don't want to include a polyfill, you can use an empty module like this:
-  resolve.fallback: { "assert": false }
-
-
-ERROR in ./node_modules/ethereumjs-util/dist.browser/address.js 12:31-48
-
-Module not found: Error: Can't resolve 'assert' in '...\stream-page\node_modules\ethereumjs-util\dist.browser'
-
-BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
-This is no longer the case. Verify if you need this module and configure a polyfill for it.
-
-If you want to include a polyfill, you need to:
-  - add a fallback 'resolve.fallback: { "assert": require.resolve("assert/") }'
-  - install 'assert'
-If you don't want to include a polyfill, you can use an empty module like this:
-  resolve.fallback: { "assert": false }
-
-
-ERROR in ./node_modules/ethereumjs-util/dist.browser/object.js 12:31-48
-
-Module not found: Error: Can't resolve 'assert' in '...\stream-page\node_modules\ethereumjs-util\dist.browser'
-
-BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
-This is no longer the case. Verify if you need this module and configure a polyfill for it.
-
-If you want to include a polyfill, you need to:
-  - add a fallback 'resolve.fallback: { "assert": require.resolve("assert/") }'
-  - install 'assert'
-If you don't want to include a polyfill, you can use an empty module like this:
-  resolve.fallback: { "assert": false }
-*/
 
 import React from 'react';
 import { useEffect, useState } from 'react';
@@ -82,6 +22,8 @@ const log = console.log;
 
 
 
+/*
+OLDALCHEMY
 
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3');
 const alchemyKey = "https://eth-mainnet.alchemyapi.io/v2/" + process.env.REACT_APP_ALCHEMY;
@@ -89,6 +31,7 @@ const web3 = createAlchemyWeb3(alchemyKey);
 let contractABI = require('./contract.json');
 export const CollectionContract = new web3.eth.Contract(contractABI, contractAddress);
 CollectionContract.handleRevert = true;
+*/
 
 /*
 https://stackoverflow.com/questions/42182577/is-it-possible-to-use-dotenv-in-a-react-project
@@ -146,6 +89,9 @@ const Wallet = () => {
   }, []);
 
   function addSmartContractListener() {
+    /*
+    OLDALCHEMY
+
     CollectionContract.events.AssetMinted({}, (error, data) => {
       if (error) {
         setStatus('😥 ' + error.message);
@@ -156,6 +102,7 @@ const Wallet = () => {
         setStatus('🎉 Your message has been updated!');
       }
     });
+    */
   }
 
   function addWalletListener() {
@@ -301,6 +248,9 @@ export const connectWallet = async () => {
 export const mintToken = async (address, qty) => {
   log("hello from inside mint token");
 
+  /*
+  OLDALCHEMY
+
   CollectionContract.handleRevert = true;
   const costOfNFTS = qty * 123000000000;//matches price of 0.000000123 ETH
   const checkTotal = await CollectionContract.methods.maximumAllowedTokensPerPurchase().call();
@@ -344,10 +294,14 @@ export const mintToken = async (address, qty) => {
       status: 'Error: Insufficient Funds.'
     };
   }
+  */
 };
 
 export const setActive = async () => {
   log("hi from set active");
+
+  /*
+  OLDALCHEMY
 
   const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
@@ -370,6 +324,7 @@ export const setActive = async () => {
       status: 'Error: Something went wrong: ' + error.message
     };
   }
+  */
 };
 
 
@@ -388,7 +343,7 @@ function App() {
   return (
     <div className="App">
       <p>Hello, stream-page!</p>
-      <p>Date 2022dec18, Version 35</p>
+      <p>Date 2022dec19, Version 13</p>
       <Wallet />
     </div>
   );
