@@ -3,7 +3,7 @@
 This repo, *stream-page*, has the React site with components for connecting a wallet and minting tokens.
 Check out the other repo, *stream-token*, for the smart contract code and hardhat tasks.
 
-Site deploys automatically to [Amplify](https://main.d2l5p8khnlyxk6.amplifyapp.com/).
+Site deploys automatically to [Amplify](https://main.d37jem61uouneq.amplifyapp.com/).
 
 ```
 on github.com website, make a completely blank new repo
