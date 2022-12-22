@@ -22,8 +22,6 @@ const log = console.log;
 
 
 
-/*
-OLDALCHEMY
 
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3');
 const alchemyKey = "https://eth-mainnet.alchemyapi.io/v2/" + process.env.REACT_APP_ALCHEMY;
@@ -31,7 +29,6 @@ const web3 = createAlchemyWeb3(alchemyKey);
 let contractABI = require('./contract.json');
 export const CollectionContract = new web3.eth.Contract(contractABI, contractAddress);
 CollectionContract.handleRevert = true;
-*/
 
 /*
 https://stackoverflow.com/questions/42182577/is-it-possible-to-use-dotenv-in-a-react-project
@@ -248,9 +245,6 @@ export const connectWallet = async () => {
 export const mintToken = async (address, qty) => {
   log("hello from inside mint token");
 
-  /*
-  OLDALCHEMY
-
   CollectionContract.handleRevert = true;
   const costOfNFTS = qty * 123000000000;//matches price of 0.000000123 ETH
   const checkTotal = await CollectionContract.methods.maximumAllowedTokensPerPurchase().call();
@@ -294,14 +288,10 @@ export const mintToken = async (address, qty) => {
       status: 'Error: Insufficient Funds.'
     };
   }
-  */
 };
 
 export const setActive = async () => {
   log("hi from set active");
-
-  /*
-  OLDALCHEMY
 
   const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
@@ -324,7 +314,6 @@ export const setActive = async () => {
       status: 'Error: Something went wrong: ' + error.message
     };
   }
-  */
 };
 
 
@@ -343,7 +332,7 @@ function App() {
   return (
     <div className="App">
       <p>Hello, stream-page!</p>
-      <p>Date 2022dec21, Version 16</p>
+      <p>Date 2022dec21, Version 18</p>
       <Wallet />
     </div>
   );
